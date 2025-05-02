@@ -1,0 +1,32 @@
+import scala.collection.mutable.ArrayBuffer
+
+object Numbers {
+  def main(args: Array[String]): Unit = {
+    val nums = ArrayBuffer[Int]()//Creates an empty mutable ArrayBuffer integers.
+
+    nums ++= Seq(4, 5, 6, 7)//Adds elements to the buffer.
+    println(nums)  // 4,5,6,7
+
+    nums ++= Seq(8, 9, 10)//Appends to the end of the buffer.
+    println(nums)  // 4,5,6,7,8,9,10
+    
+    nums.insertAll(0, Seq(1, 2, 3))//Inserts at the beginning (index 0).
+    println(nums)  // 1,2,3,4,5,6,7,8,9,10
+
+    nums --= Seq(9, 10)//Removes all occurrences.
+    println(nums)  // 1,2,3,4,5,6,7,8
+
+    println(nums.filter(n => n >= 1 && n <= 5))// Filters and prints elements.
+
+    // 1,2,3,4,5
+
+    nums -= 3//Removes the first occurrence.
+    println(nums)  // 1,2,4,5,6,7,8
+
+    nums.insert(2, 3)//Inserts 3 back at index 2.
+    println(nums)  // 1,2,3,4,5,6,7,8
+
+    nums.remove(0, 4)//Removes 4 elements starting from index 0.
+    println(nums)  // 5,6,7,8
+  }
+}
